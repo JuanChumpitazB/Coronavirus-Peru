@@ -1,0 +1,120 @@
+﻿body {
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.cabecera{
+    background-color:#232323;
+    padding:20px;
+    font-size:20px;
+    color:white;
+    text-align:center;
+    font-weight: bold;
+}
+
+.porcentajeInfectados {
+    padding: 10px;
+    background-color: #ffc107;
+    font-size: 25px;
+    font-weight: bold;
+    text-align:center;
+    box-shadow:0 0 10px;
+}
+.porcentajeMortalidad {
+    color: #ebebeb;
+    padding: 10px;
+    background-color: #b90101;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0 0 10px #000000;
+}
+/*Div principal*/
+.divContenedorChart{
+    width:100%!important;
+    /*overflow-x:scroll ;*/
+    height:405px !important;
+}
+
+/*contenido del div*/
+canvas {
+    width: 100% !important;
+    display: block !important;
+    /*height: 380px !important;*/
+    height: auto !important;
+    zoom: initial;
+}
+.chartjs-size-monitor, .chartjs-size-monitor-expand, .chartjs-size-monitor-shrink {
+    position: absolute;
+    direction: ltr;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    visibility: hidden;
+}
+
+.mb-4, .my-4 {
+    margin-bottom: 1.5rem !important;
+}
+.mt-4, .my-4 {
+    margin-top: 1.5rem !important;
+}
+
+
+/*canvas:hover {
+    -ms-transform: scale(1.2); 
+    -webkit-transform: scale(1.2); 
+    transform: scale(1);
+    cursor:pointer;
+}*/
+
+.info {
+    background-color: rgba(176, 254, 247,0.2) ;
+    border: 1px solid #949695;
+    box-shadow: 0 0 15px #000000;
+    padding:10px;
+    margin-left:8%;
+    margin-right:8%;
+}
+.informacion {
+    font-size: 11px;
+    text-align: left;
+    font-weight:bold;
+    color:#002274;
+}
+.informacion img{
+    width:22px;
+}
+.informacion table tr td {
+    padding: 10px;
+    text-align: center;
+    /*background-color: #343a40;*/
+    background-color: #a50707;
+    color: white;
+}
+.fechaInformacion {
+    text-align: right;
+    font-size: 12px;
+    text-align: left;
+    font-weight: bold;
+    color: #002274;
+}
+
+select {
+    padding-top: 3px !important;
+    padding-bottom: 3px !important;
+    background-color: #002c72;
+    color: white;
+    font-weight: bold;
+    border-radius:4px;
+}
+    select option {
+        padding-top: 3px !important;
+        padding-bottom: 3px !important;
+    }
+
+
+footer{
+    text-align:right;
+}

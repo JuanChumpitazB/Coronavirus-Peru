@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CORONAVIRUS_PERUModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="REGISTROS">
+    <Key>
+      <PropertyRef Name="ID_REGISTRO" />
+    </Key>
+    <Property Name="ID_REGISTRO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FECHA" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="INFECTADOS" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="FALLECIDOS" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="RECUPERADOS" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="INFEC_X_DIA" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="PRUEBAS" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="CASOS_ACTIVOS" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="HOSPITALIZADOS" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="UCI" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="TOTAL_CAMAS" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="CAMAS_DISPONIBLES" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="CORONAVIRUS_PERUEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="REGISTROS" EntityType="Self.REGISTROS" />
+    <FunctionImport Name="R_ACTIVOS_HOSPI_UCI" ReturnType="Collection(CORONAVIRUS_PERUModel.R_ACTIVOS_HOSPI_UCI_Result)" />
+    <FunctionImport Name="R_INFEC_FALLE_RECUPE" ReturnType="Collection(CORONAVIRUS_PERUModel.R_INFEC_FALLE_RECUPE_Result)" />
+    <FunctionImport Name="R_INFEC_X_DIA" ReturnType="Collection(CORONAVIRUS_PERUModel.R_INFEC_X_DIA_Result)" />
+    <FunctionImport Name="R_PORCENTAJE_INFECTADOS" ReturnType="Collection(Decimal)" />
+    <FunctionImport Name="R_PORCENTAJE_MORTALIDAD" ReturnType="Collection(Decimal)" />
+    <FunctionImport Name="R_PRUEBAS_ACTIVOS_HOSPIT_UCI" ReturnType="Collection(CORONAVIRUS_PERUModel.R_PRUEBAS_ACTIVOS_HOSPIT_UCI_Result)" />
+    <FunctionImport Name="R_PRUEBAS_CASOSACTIVOS" ReturnType="Collection(CORONAVIRUS_PERUModel.R_PRUEBAS_CASOSACTIVOS_Result)" />
+    <FunctionImport Name="SP_LISTADOGENERAL" ReturnType="Collection(CORONAVIRUS_PERUModel.SP_LISTADOGENERAL_Result)" />
+  </EntityContainer>
+  <ComplexType Name="R_ACTIVOS_HOSPI_UCI_Result">
+    <Property Type="String" Name="FECHA" Nullable="false" MaxLength="40" />
+    <Property Type="String" Name="CASOS_ACTIVOS" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="HOSPITALIZADOS" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="UCI" Nullable="true" MaxLength="10" />
+  </ComplexType>
+  <ComplexType Name="R_INFEC_FALLE_RECUPE_Result">
+    <Property Type="String" Name="FECHA" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="INFECTADOS" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="FALLECIDOS" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="RECUPERADOS" Nullable="true" MaxLength="10" />
+  </ComplexType>
+  <ComplexType Name="R_INFEC_X_DIA_Result">
+    <Property Type="String" Name="FECHA" Nullable="false" MaxLength="40" />
+    <Property Type="String" Name="INFEC_X_DIA" Nullable="true" MaxLength="10" />
+  </ComplexType>
+  <ComplexType Name="R_PRUEBAS_ACTIVOS_HOSPIT_UCI_Result">
+    <Property Type="String" Name="FECHA" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="PRUEBAS" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="CASOS_ACTIVOS" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="HOSPITALIZADOS" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="UCI" Nullable="true" MaxLength="10" />
+  </ComplexType>
+  <ComplexType Name="R_PRUEBAS_CASOSACTIVOS_Result">
+    <Property Type="String" Name="FECHA" Nullable="false" MaxLength="40" />
+    <Property Type="String" Name="PRUEBAS" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="CASOS_ACTIVOS" Nullable="true" MaxLength="10" />
+  </ComplexType>
+  <ComplexType Name="SP_LISTADOGENERAL_Result">
+    <Property Type="Int32" Name="ID_REGISTRO" Nullable="false" />
+    <Property Type="String" Name="FECHA" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="INFECTADOS" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="FALLECIDOS" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="RECUPERADOS" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="INFEC_X_DIA" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="PRUEBAS" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="CASOS_ACTIVOS" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="HOSPITALIZADOS" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="UCI" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="TOTAL_CAMAS" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="CAMAS_DISPONIBLES" Nullable="true" MaxLength="10" />
+  </ComplexType>
+</Schema>

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CORONAVIRUS_PERUModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="REGISTROS">
+    <Key>
+      <PropertyRef Name="ID_REGISTRO" />
+    </Key>
+    <Property Name="ID_REGISTRO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FECHA" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="INFECTADOS" Type="varchar" MaxLength="10" />
+    <Property Name="FALLECIDOS" Type="varchar" MaxLength="10" />
+    <Property Name="RECUPERADOS" Type="varchar" MaxLength="10" />
+    <Property Name="INFEC_X_DIA" Type="varchar" MaxLength="10" />
+    <Property Name="PRUEBAS" Type="varchar" MaxLength="10" />
+    <Property Name="CASOS_ACTIVOS" Type="varchar" MaxLength="10" />
+    <Property Name="HOSPITALIZADOS" Type="varchar" MaxLength="10" />
+    <Property Name="UCI" Type="varchar" MaxLength="10" />
+    <Property Name="TOTAL_CAMAS" Type="varchar" MaxLength="10" />
+    <Property Name="CAMAS_DISPONIBLES" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <Function Name="R_ACTIVOS_HOSPI_UCI" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="R_INFEC_FALLE_RECUPE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="R_INFEC_X_DIA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="R_PORCENTAJE_INFECTADOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="R_PORCENTAJE_MORTALIDAD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="R_PRUEBAS_ACTIVOS_HOSPIT_UCI" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="R_PRUEBAS_CASOSACTIVOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_LISTADOGENERAL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="CORONAVIRUS_PERUModelStoreContainer">
+    <EntitySet Name="REGISTROS" EntityType="Self.REGISTROS" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,235 @@
+﻿
+@{
+    ViewBag.Title = "CoronavirusPeru";
+    Layout = "~/Views/layout/_Menu.cshtml";
+
+    var ultimaInformacion = ViewBag.UltimaInformacion;
+    var meses = ViewBag.Meses;
+    var anios = ViewBag.Anios;
+
+}
+
+<!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>-->
+
+@*<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>*@
+
+<!--<link href="~/css/bootstrap.css" rel="stylesheet" />-->
+@*<link href="~/css/Estilos.css" rel="stylesheet" />*@
+<!--<script src="~/js/Chart.min.js"></script>
+<script src="~/js/Chart.js"></script>-->
+@*<script src="~/js/grafico_v1.js"></script>*@
+<!--<script src="~/js/grafico_v2.js"></script>-->
+
+
+
+@*<br />
+    <div class="row informacion">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <table class="table-responsive">
+                <tr>
+                    @foreach (var item in ultimaInformacion)
+                    {
+                        <td><img src="~/imagenes/virus.png" /> <p>Infectados</p> @item[1]</td>
+                        <td><img src="~/imagenes/applause.png" /> <p>Recuperados</p>@item[3]</td>
+                        <td><img src="~/imagenes/cross.png" /> <p>Fallecidos</p>@item[2]</td>
+                        <td><img src="~/imagenes/pruebas.png" /> <p>Total Pruebas</p>@item[4]</td>
+                        <td><img src="~/imagenes/activos.png" /> <p>Casos Activos</p>@item[5]</td>
+                        <td><img src="~/imagenes/hospital.png" /> <p>Hospitalizados</p>@item[6]</td>
+                        <td><img src="~/imagenes/uci.png" /> <p>UCI</p>@item[7]</td>
+                        <p>Ultima Actualización: @item[0]</p>
+                    }
+                </tr>
+            </table>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+    <br />*@
+
+<br />
+
+<div class="row">
+    <div class="col-12">
+        @foreach (var item in ultimaInformacion)
+        {
+                <p class="subTituloUltimaInformacion">Última Actualización: @item[0]</p>
+            
+            <div class="contenidoInfoIndividual">
+                <div class="informacionIndividual form-inline">
+                    <img src="~/imagenes/virus.png" /><p>  Infectados: @item[1]</p>
+                </div>
+                <div class="informacionIndividual form-inline">
+                    <img src="~/imagenes/applause.png" /><p>  Recuperados: @item[3]</p>
+                </div>
+                <div class="informacionIndividual form-inline">
+                    <img src="~/imagenes/cross.png" /><p>  Fallecidos: @item[2]</p>
+                </div>
+                <div class="informacionIndividual form-inline">
+                    <img src="~/imagenes/pruebas.png" /><p>  Total Pruebas: @item[4]</p>
+                </div>
+                <div class="informacionIndividual form-inline" style="display:none;">
+                    <img src="~/imagenes/activos.png" /><p>  Casos Activos: @item[5]</p>
+                </div>
+                <div class="informacionIndividual form-inline">
+                    <img src="~/imagenes/hospital.png" /><p>  Hospitalizados: @item[6]</p>
+                </div>
+                <div class="informacionIndividual form-inline">
+                    <img src="~/imagenes/uci.png" /><p> En UCI: @item[7]</p>
+                </div>
+            </div>
+
+        }
+
+    </div>
+</div>
+
+<br />
+
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10"><p class="subtitulos">Gráfico por Mes</p></div>
+    <div class="col-md-1"></div>
+</div>
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+        <input id="btnInfectados" value="Infectados" type="button" class="btn btn-dark" />
+        <input id="btnInfectadosXdia" value="Infectados por día" type="button" class="btn btn-dark" />
+        <select class="custom-select-sm" id="cboAnios">
+            @foreach (var anio in anios)
+            {
+                <option value="@anio[0]">@anio[0]</option>
+            }
+        </select>
+        <select class="custom-select-sm" id="cboMeses">
+            @foreach (var mes in meses)
+            {
+                <option value="@mes[0]">@mes[1]</option>
+            }
+        </select>
+    </div>
+    <div class="col-md-1"></div>
+</div>
+
+
+<br />
+<br />
+
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10 divContenedorChart " id="contenedorCanvas">
+        <canvas id="G_1" class=" chartjs-render-monitor"></canvas>
+    </div>
+    <div class="col-md-1"></div>
+</div>
+
+<br />
+<br />
+
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-2 porcentajeInfectados">
+        <label id="lblPorcentajeInfectados"></label>
+    </div>
+    <div class="col-md-2"></div>
+    <div class="col-md-2 porcentajeMortalidad">
+        <label id="lblPorcentajeMortalidad"></label>
+    </div>
+    <div class="col-md-3"></div>
+</div>
+
+<br />
+<br />
+<br />
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10"><p class="subtitulos">Gráfico de Curvas General</p></div>
+    <div class="col-md-1"></div>
+</div>
+<br />
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10 divContenedorChart2 " id="contenedorCanvas2">
+        <canvas id="G_2" class=" chartjs-render-monitor"></canvas>
+    </div>
+    <div class="col-md-1"></div>
+</div>
+
+<br />
+<br />
+<br />
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10" id="idTituloSemana"><p class="subtitulos">Gráfico por Semana</p></div>
+    <div class="col-md-1"></div>
+</div>
+<br />
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10 divContenedorChart3 " id="contenedorCanvas3">
+        <canvas id="G_3" class=" chartjs-render-monitor"></canvas>
+    </div>
+    <div class="col-md-1"></div>
+</div>
+
+<br />
+<br />
+<br />
+
+<footer>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <aside>
+                Fuente:
+                <a target="_blank" href="https://twitter.com/ImpulsoPais"><img src="~/imagenes/twitter.png" />Inpulso Pais</a>
+                <a target="_blank" href="https://twitter.com/Minsa_Peru"><img src="~/imagenes/minsa.png" style="width:24px" />Ministerio de Salud</a>
+            </aside>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+</footer>
+<br />
+
+
+
+@*<script>
+    $(document).ready(function () {
+        cargarMesesXanio();
+    });
+    function cargarMesesXanio() {
+        var numAnio = parseInt($('#cboAnios').val());
+        $.ajax({
+            type: 'POST',
+            url: '/Registros/JsonMesesXanio?anio=' + numAnio,
+            contentType: 'application/json; charset=utf-8',
+            success: function (miJson) {
+                //$('#cboMeses').val('');
+                var contador = 0;
+                $('#cboMeses').empty();
+                for (let x = 0; x < miJson.length; x++) {
+                    var arrayOption = miJson[x];
+                    //if (contador == 0) primerOptionInicio = arrayOption[0];
+                    contador++;
+                    $('#cboMeses').append(
+                        '<option value="' + arrayOption[0] + '">' + arrayOption[1] + '</option>'
+                    );
+                }
+
+            }
+        });
+    }
+</script>*@
+
+
+
+
+
+
+
+

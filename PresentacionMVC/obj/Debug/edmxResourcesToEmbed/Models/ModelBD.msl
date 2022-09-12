@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CORONAVIRUS_PERUModelStoreContainer" CdmEntityContainer="CORONAVIRUS_PERUEntities">
+    <EntitySetMapping Name="REGISTROS">
+      <EntityTypeMapping TypeName="CORONAVIRUS_PERUModel.REGISTROS">
+        <MappingFragment StoreEntitySet="REGISTROS">
+          <ScalarProperty Name="ID_REGISTRO" ColumnName="ID_REGISTRO" />
+          <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+          <ScalarProperty Name="INFECTADOS" ColumnName="INFECTADOS" />
+          <ScalarProperty Name="FALLECIDOS" ColumnName="FALLECIDOS" />
+          <ScalarProperty Name="RECUPERADOS" ColumnName="RECUPERADOS" />
+          <ScalarProperty Name="INFEC_X_DIA" ColumnName="INFEC_X_DIA" />
+          <ScalarProperty Name="PRUEBAS" ColumnName="PRUEBAS" />
+          <ScalarProperty Name="CASOS_ACTIVOS" ColumnName="CASOS_ACTIVOS" />
+          <ScalarProperty Name="HOSPITALIZADOS" ColumnName="HOSPITALIZADOS" />
+          <ScalarProperty Name="UCI" ColumnName="UCI" />
+          <ScalarProperty Name="TOTAL_CAMAS" ColumnName="TOTAL_CAMAS" />
+          <ScalarProperty Name="CAMAS_DISPONIBLES" ColumnName="CAMAS_DISPONIBLES" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="R_ACTIVOS_HOSPI_UCI" FunctionName="CORONAVIRUS_PERUModel.Store.R_ACTIVOS_HOSPI_UCI">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CORONAVIRUS_PERUModel.R_ACTIVOS_HOSPI_UCI_Result">
+          <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+          <ScalarProperty Name="CASOS_ACTIVOS" ColumnName="CASOS_ACTIVOS" />
+          <ScalarProperty Name="HOSPITALIZADOS" ColumnName="HOSPITALIZADOS" />
+          <ScalarProperty Name="UCI" ColumnName="UCI" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="R_INFEC_FALLE_RECUPE" FunctionName="CORONAVIRUS_PERUModel.Store.R_INFEC_FALLE_RECUPE">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CORONAVIRUS_PERUModel.R_INFEC_FALLE_RECUPE_Result">
+          <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+          <ScalarProperty Name="INFECTADOS" ColumnName="INFECTADOS" />
+          <ScalarProperty Name="FALLECIDOS" ColumnName="FALLECIDOS" />
+          <ScalarProperty Name="RECUPERADOS" ColumnName="RECUPERADOS" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="R_INFEC_X_DIA" FunctionName="CORONAVIRUS_PERUModel.Store.R_INFEC_X_DIA">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CORONAVIRUS_PERUModel.R_INFEC_X_DIA_Result">
+          <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+          <ScalarProperty Name="INFEC_X_DIA" ColumnName="INFEC_X_DIA" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="R_PORCENTAJE_INFECTADOS" FunctionName="CORONAVIRUS_PERUModel.Store.R_PORCENTAJE_INFECTADOS" />
+    <FunctionImportMapping FunctionImportName="R_PORCENTAJE_MORTALIDAD" FunctionName="CORONAVIRUS_PERUModel.Store.R_PORCENTAJE_MORTALIDAD" />
+    <FunctionImportMapping FunctionImportName="R_PRUEBAS_ACTIVOS_HOSPIT_UCI" FunctionName="CORONAVIRUS_PERUModel.Store.R_PRUEBAS_ACTIVOS_HOSPIT_UCI">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CORONAVIRUS_PERUModel.R_PRUEBAS_ACTIVOS_HOSPIT_UCI_Result">
+          <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+          <ScalarProperty Name="PRUEBAS" ColumnName="PRUEBAS" />
+          <ScalarProperty Name="CASOS_ACTIVOS" ColumnName="CASOS_ACTIVOS" />
+          <ScalarProperty Name="HOSPITALIZADOS" ColumnName="HOSPITALIZADOS" />
+          <ScalarProperty Name="UCI" ColumnName="UCI" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="R_PRUEBAS_CASOSACTIVOS" FunctionName="CORONAVIRUS_PERUModel.Store.R_PRUEBAS_CASOSACTIVOS">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CORONAVIRUS_PERUModel.R_PRUEBAS_CASOSACTIVOS_Result">
+          <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+          <ScalarProperty Name="PRUEBAS" ColumnName="PRUEBAS" />
+          <ScalarProperty Name="CASOS_ACTIVOS" ColumnName="CASOS_ACTIVOS" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_LISTADOGENERAL" FunctionName="CORONAVIRUS_PERUModel.Store.SP_LISTADOGENERAL">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="CORONAVIRUS_PERUModel.SP_LISTADOGENERAL_Result">
+          <ScalarProperty Name="ID_REGISTRO" ColumnName="ID_REGISTRO" />
+          <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+          <ScalarProperty Name="INFECTADOS" ColumnName="INFECTADOS" />
+          <ScalarProperty Name="FALLECIDOS" ColumnName="FALLECIDOS" />
+          <ScalarProperty Name="RECUPERADOS" ColumnName="RECUPERADOS" />
+          <ScalarProperty Name="INFEC_X_DIA" ColumnName="INFEC_X_DIA" />
+          <ScalarProperty Name="PRUEBAS" ColumnName="PRUEBAS" />
+          <ScalarProperty Name="CASOS_ACTIVOS" ColumnName="CASOS_ACTIVOS" />
+          <ScalarProperty Name="HOSPITALIZADOS" ColumnName="HOSPITALIZADOS" />
+          <ScalarProperty Name="UCI" ColumnName="UCI" />
+          <ScalarProperty Name="TOTAL_CAMAS" ColumnName="TOTAL_CAMAS" />
+          <ScalarProperty Name="CAMAS_DISPONIBLES" ColumnName="CAMAS_DISPONIBLES" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

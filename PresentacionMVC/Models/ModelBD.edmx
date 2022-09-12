@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CORONAVIRUS_PERUModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="REGISTROS">
+          <Key>
+            <PropertyRef Name="ID_REGISTRO" />
+          </Key>
+          <Property Name="ID_REGISTRO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FECHA" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="INFECTADOS" Type="varchar" MaxLength="10" />
+          <Property Name="FALLECIDOS" Type="varchar" MaxLength="10" />
+          <Property Name="RECUPERADOS" Type="varchar" MaxLength="10" />
+          <Property Name="INFEC_X_DIA" Type="varchar" MaxLength="10" />
+          <Property Name="PRUEBAS" Type="varchar" MaxLength="10" />
+          <Property Name="CASOS_ACTIVOS" Type="varchar" MaxLength="10" />
+          <Property Name="HOSPITALIZADOS" Type="varchar" MaxLength="10" />
+          <Property Name="UCI" Type="varchar" MaxLength="10" />
+          <Property Name="TOTAL_CAMAS" Type="varchar" MaxLength="10" />
+          <Property Name="CAMAS_DISPONIBLES" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <Function Name="R_ACTIVOS_HOSPI_UCI" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="R_INFEC_FALLE_RECUPE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="R_INFEC_X_DIA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="R_PORCENTAJE_INFECTADOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="R_PORCENTAJE_MORTALIDAD" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="R_PRUEBAS_ACTIVOS_HOSPIT_UCI" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="R_PRUEBAS_CASOSACTIVOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SP_LISTADOGENERAL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="CORONAVIRUS_PERUModelStoreContainer">
+          <EntitySet Name="REGISTROS" EntityType="Self.REGISTROS" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CORONAVIRUS_PERUModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="REGISTROS">
+          <Key>
+            <PropertyRef Name="ID_REGISTRO" />
+          </Key>
+          <Property Name="ID_REGISTRO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FECHA" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="INFECTADOS" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="FALLECIDOS" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="RECUPERADOS" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="INFEC_X_DIA" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PRUEBAS" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CASOS_ACTIVOS" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="HOSPITALIZADOS" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="UCI" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="TOTAL_CAMAS" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CAMAS_DISPONIBLES" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="CORONAVIRUS_PERUEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="REGISTROS" EntityType="Self.REGISTROS" />
+          <FunctionImport Name="R_ACTIVOS_HOSPI_UCI" ReturnType="Collection(CORONAVIRUS_PERUModel.R_ACTIVOS_HOSPI_UCI_Result)" />
+          <FunctionImport Name="R_INFEC_FALLE_RECUPE" ReturnType="Collection(CORONAVIRUS_PERUModel.R_INFEC_FALLE_RECUPE_Result)" />
+          <FunctionImport Name="R_INFEC_X_DIA" ReturnType="Collection(CORONAVIRUS_PERUModel.R_INFEC_X_DIA_Result)" />
+          <FunctionImport Name="R_PORCENTAJE_INFECTADOS" ReturnType="Collection(Decimal)" />
+          <FunctionImport Name="R_PORCENTAJE_MORTALIDAD" ReturnType="Collection(Decimal)" />
+          <FunctionImport Name="R_PRUEBAS_ACTIVOS_HOSPIT_UCI" ReturnType="Collection(CORONAVIRUS_PERUModel.R_PRUEBAS_ACTIVOS_HOSPIT_UCI_Result)" />
+          <FunctionImport Name="R_PRUEBAS_CASOSACTIVOS" ReturnType="Collection(CORONAVIRUS_PERUModel.R_PRUEBAS_CASOSACTIVOS_Result)" />
+          <FunctionImport Name="SP_LISTADOGENERAL" ReturnType="Collection(CORONAVIRUS_PERUModel.SP_LISTADOGENERAL_Result)" />
+        </EntityContainer>
+        <ComplexType Name="R_ACTIVOS_HOSPI_UCI_Result">
+          <Property Type="String" Name="FECHA" Nullable="false" MaxLength="40" />
+          <Property Type="String" Name="CASOS_ACTIVOS" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="HOSPITALIZADOS" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="UCI" Nullable="true" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="R_INFEC_FALLE_RECUPE_Result">
+          <Property Type="String" Name="FECHA" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="INFECTADOS" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="FALLECIDOS" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="RECUPERADOS" Nullable="true" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="R_INFEC_X_DIA_Result">
+          <Property Type="String" Name="FECHA" Nullable="false" MaxLength="40" />
+          <Property Type="String" Name="INFEC_X_DIA" Nullable="true" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="R_PRUEBAS_ACTIVOS_HOSPIT_UCI_Result">
+          <Property Type="String" Name="FECHA" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="PRUEBAS" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="CASOS_ACTIVOS" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="HOSPITALIZADOS" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="UCI" Nullable="true" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="R_PRUEBAS_CASOSACTIVOS_Result">
+          <Property Type="String" Name="FECHA" Nullable="false" MaxLength="40" />
+          <Property Type="String" Name="PRUEBAS" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="CASOS_ACTIVOS" Nullable="true" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="SP_LISTADOGENERAL_Result">
+          <Property Type="Int32" Name="ID_REGISTRO" Nullable="false" />
+          <Property Type="String" Name="FECHA" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="INFECTADOS" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="FALLECIDOS" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="RECUPERADOS" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="INFEC_X_DIA" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="PRUEBAS" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="CASOS_ACTIVOS" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="HOSPITALIZADOS" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="UCI" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="TOTAL_CAMAS" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="CAMAS_DISPONIBLES" Nullable="true" MaxLength="10" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CORONAVIRUS_PERUModelStoreContainer" CdmEntityContainer="CORONAVIRUS_PERUEntities">
+          <EntitySetMapping Name="REGISTROS">
+            <EntityTypeMapping TypeName="CORONAVIRUS_PERUModel.REGISTROS">
+              <MappingFragment StoreEntitySet="REGISTROS">
+                <ScalarProperty Name="ID_REGISTRO" ColumnName="ID_REGISTRO" />
+                <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+                <ScalarProperty Name="INFECTADOS" ColumnName="INFECTADOS" />
+                <ScalarProperty Name="FALLECIDOS" ColumnName="FALLECIDOS" />
+                <ScalarProperty Name="RECUPERADOS" ColumnName="RECUPERADOS" />
+                <ScalarProperty Name="INFEC_X_DIA" ColumnName="INFEC_X_DIA" />
+                <ScalarProperty Name="PRUEBAS" ColumnName="PRUEBAS" />
+                <ScalarProperty Name="CASOS_ACTIVOS" ColumnName="CASOS_ACTIVOS" />
+                <ScalarProperty Name="HOSPITALIZADOS" ColumnName="HOSPITALIZADOS" />
+                <ScalarProperty Name="UCI" ColumnName="UCI" />
+                <ScalarProperty Name="TOTAL_CAMAS" ColumnName="TOTAL_CAMAS" />
+                <ScalarProperty Name="CAMAS_DISPONIBLES" ColumnName="CAMAS_DISPONIBLES" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="R_ACTIVOS_HOSPI_UCI" FunctionName="CORONAVIRUS_PERUModel.Store.R_ACTIVOS_HOSPI_UCI">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CORONAVIRUS_PERUModel.R_ACTIVOS_HOSPI_UCI_Result">
+                <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+                <ScalarProperty Name="CASOS_ACTIVOS" ColumnName="CASOS_ACTIVOS" />
+                <ScalarProperty Name="HOSPITALIZADOS" ColumnName="HOSPITALIZADOS" />
+                <ScalarProperty Name="UCI" ColumnName="UCI" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="R_INFEC_FALLE_RECUPE" FunctionName="CORONAVIRUS_PERUModel.Store.R_INFEC_FALLE_RECUPE">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CORONAVIRUS_PERUModel.R_INFEC_FALLE_RECUPE_Result">
+                <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+                <ScalarProperty Name="INFECTADOS" ColumnName="INFECTADOS" />
+                <ScalarProperty Name="FALLECIDOS" ColumnName="FALLECIDOS" />
+                <ScalarProperty Name="RECUPERADOS" ColumnName="RECUPERADOS" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="R_INFEC_X_DIA" FunctionName="CORONAVIRUS_PERUModel.Store.R_INFEC_X_DIA">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CORONAVIRUS_PERUModel.R_INFEC_X_DIA_Result">
+                <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+                <ScalarProperty Name="INFEC_X_DIA" ColumnName="INFEC_X_DIA" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="R_PORCENTAJE_INFECTADOS" FunctionName="CORONAVIRUS_PERUModel.Store.R_PORCENTAJE_INFECTADOS" />
+          <FunctionImportMapping FunctionImportName="R_PORCENTAJE_MORTALIDAD" FunctionName="CORONAVIRUS_PERUModel.Store.R_PORCENTAJE_MORTALIDAD" />
+          <FunctionImportMapping FunctionImportName="R_PRUEBAS_ACTIVOS_HOSPIT_UCI" FunctionName="CORONAVIRUS_PERUModel.Store.R_PRUEBAS_ACTIVOS_HOSPIT_UCI">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CORONAVIRUS_PERUModel.R_PRUEBAS_ACTIVOS_HOSPIT_UCI_Result">
+                <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+                <ScalarProperty Name="PRUEBAS" ColumnName="PRUEBAS" />
+                <ScalarProperty Name="CASOS_ACTIVOS" ColumnName="CASOS_ACTIVOS" />
+                <ScalarProperty Name="HOSPITALIZADOS" ColumnName="HOSPITALIZADOS" />
+                <ScalarProperty Name="UCI" ColumnName="UCI" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="R_PRUEBAS_CASOSACTIVOS" FunctionName="CORONAVIRUS_PERUModel.Store.R_PRUEBAS_CASOSACTIVOS">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CORONAVIRUS_PERUModel.R_PRUEBAS_CASOSACTIVOS_Result">
+                <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+                <ScalarProperty Name="PRUEBAS" ColumnName="PRUEBAS" />
+                <ScalarProperty Name="CASOS_ACTIVOS" ColumnName="CASOS_ACTIVOS" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_LISTADOGENERAL" FunctionName="CORONAVIRUS_PERUModel.Store.SP_LISTADOGENERAL">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CORONAVIRUS_PERUModel.SP_LISTADOGENERAL_Result">
+                <ScalarProperty Name="ID_REGISTRO" ColumnName="ID_REGISTRO" />
+                <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+                <ScalarProperty Name="INFECTADOS" ColumnName="INFECTADOS" />
+                <ScalarProperty Name="FALLECIDOS" ColumnName="FALLECIDOS" />
+                <ScalarProperty Name="RECUPERADOS" ColumnName="RECUPERADOS" />
+                <ScalarProperty Name="INFEC_X_DIA" ColumnName="INFEC_X_DIA" />
+                <ScalarProperty Name="PRUEBAS" ColumnName="PRUEBAS" />
+                <ScalarProperty Name="CASOS_ACTIVOS" ColumnName="CASOS_ACTIVOS" />
+                <ScalarProperty Name="HOSPITALIZADOS" ColumnName="HOSPITALIZADOS" />
+                <ScalarProperty Name="UCI" ColumnName="UCI" />
+                <ScalarProperty Name="TOTAL_CAMAS" ColumnName="TOTAL_CAMAS" />
+                <ScalarProperty Name="CAMAS_DISPONIBLES" ColumnName="CAMAS_DISPONIBLES" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
